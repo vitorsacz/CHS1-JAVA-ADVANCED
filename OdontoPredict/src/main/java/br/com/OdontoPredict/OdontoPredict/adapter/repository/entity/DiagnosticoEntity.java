@@ -1,4 +1,4 @@
-package br.com.OdontoPredict.OdontoPredict.adapter.http.repository.entity;
+package br.com.OdontoPredict.OdontoPredict.adapter.repository.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -10,15 +10,18 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Diagnostico {
+public class DiagnosticoEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "id_diagnostico")
     private String idDiagnostico;
 
+    @Column(name = "descricao")
     private String descricao;
+
+    @Column(name = "recomendacao")
     private String recomendacao;
 
     @OneToOne(mappedBy = "diagnostico")
-    private Consulta consulta;
+    private ConsultaEntity consulta;
 }

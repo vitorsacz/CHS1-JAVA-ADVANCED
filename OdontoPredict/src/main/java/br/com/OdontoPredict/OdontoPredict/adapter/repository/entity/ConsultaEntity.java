@@ -1,4 +1,4 @@
-package br.com.OdontoPredict.OdontoPredict.adapter.http.repository.entity;
+package br.com.OdontoPredict.OdontoPredict.adapter.repository.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -12,25 +12,28 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Consulta {
+public class ConsultaEntity {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.UUID)
+    @Column(name = "id_consulta")
     private String idConsulta;
 
     @ManyToOne
     @JoinColumn(name = "paciente_id")
-    private Paciente paciente;
+    private PacienteEntity paciente;
 
     @ManyToOne
     @JoinColumn(name = "dentista_id")
-    private Dentista dentista;
+    private DentistaEntity dentista;
 
+    @Column(name = "data_consulta")
     private Date data;
+
+    @Column(name = "tipo_tratamento")
     private String tipoTratamento;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "diagnostico_id", referencedColumnName = "idConsulta")
-    private Diagnostico diagnostico; // Relacionamento com Diagnostico
+    @JoinColumn(name = "diagnostico_id", referencedColumnName = "id_diagnostico")
+    private DiagnosticoEntity diagnostico;
 
 }
