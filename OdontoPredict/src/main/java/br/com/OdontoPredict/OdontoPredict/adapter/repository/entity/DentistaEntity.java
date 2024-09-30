@@ -1,8 +1,9 @@
-package br.com.OdontoPredict.OdontoPredict.adapter.http.repository.entity;
+package br.com.OdontoPredict.OdontoPredict.adapter.repository.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
@@ -10,15 +11,20 @@ import java.util.List;
 @Table(name = "tbl_Dentista")
 @Data
 @AllArgsConstructor
-public class Dentista {
+@NoArgsConstructor
+public class DentistaEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID.)
+    @Column(name = "id_dentista")
     private String idDentista;
 
+    @Column(name = "nome_dentista")
     private String nome;
+
+    @Column(name = "especializacao")
     private String especializacao;
 
     @OneToMany(mappedBy = "dentista")
-    private List<Consulta> consultas;
+    private List<ConsultaEntity> consultas;
+
 }
