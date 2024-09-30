@@ -11,6 +11,7 @@ public class PacienteDtoMapper {
         Paciente paciente = new Paciente();
         paciente.setNome(pacienteDto.getNome());
         paciente.setDataNascimento(pacienteDto.getDataNascimento());
+
         return paciente;
     }
 }

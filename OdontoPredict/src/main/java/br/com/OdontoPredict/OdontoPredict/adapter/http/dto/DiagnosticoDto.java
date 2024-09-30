@@ -2,6 +2,7 @@ package br.com.OdontoPredict.OdontoPredict.adapter.http.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,11 +12,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class DiagnosticoDto {
 
-    @JsonProperty("nome")
-    @NotBlank
-    private String nome;
+    @JsonProperty("id_diagnostico")
+    private String idDiagnostico;
 
-    @JsonProperty("especializacao")
-    @NotBlank
-    private String especializacao;
+    @JsonProperty("descricao")
+    @NotBlank(message = "Descrição é obrigatória.")
+    @Size(max = 255, message = "Descrição não pode ter mais de 255 caracteres.")
+    private String descricao;
+
+    @JsonProperty("recomendacao")
+    @NotBlank(message = "Recomendação é obrigatória.")
+    @Size(max = 255, message = "Recomendação não pode ter mais de 255 caracteres.")
+    private String recomendacao;
 }

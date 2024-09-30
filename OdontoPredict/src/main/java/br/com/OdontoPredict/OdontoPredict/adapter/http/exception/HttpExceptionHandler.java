@@ -1,14 +1,17 @@
 package br.com.OdontoPredict.OdontoPredict.adapter.http.exception;
 
 import br.com.OdontoPredict.OdontoPredict.adapter.http.dto.erros.ResponseErrors;
+import br.com.OdontoPredict.OdontoPredict.domain.exception.PacienteNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@RestControllerAdvice
 public class HttpExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -31,7 +34,13 @@ public class HttpExceptionHandler {
 
         }
 
-
         return ResponseEntity.badRequest().body(listaDeErro);
+    }
+
+    @ExceptionHandler(PacienteNotFoundException.class)
+    public ResponseEntity<Object> tratarPacienteNotFoundException(PacienteNotFoundException pacienteNotFoundException){
+        ResponseErrors responseErro = new ResponseErrors();
+        responseErro.setMensagem(pacienteNotFoundException.getMessage());
+        return ResponseEntity.status(pacienteNotFoundException.HTTP_STATUS_CODE).body(responseErro);
     }
 }
