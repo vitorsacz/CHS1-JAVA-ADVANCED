@@ -15,9 +15,16 @@ public class PacienteEntityMapper {
         return paciente;
     }
 
-    public void atualizarPacienteEntity(PacienteEntity pacienteEntity, Paciente paciente){
+    public PacienteEntity converterPacienteEntity(Paciente paciente){
+        PacienteEntity pacienteEntity = new PacienteEntity();
+        pacienteEntity.setNome(paciente.getNome());
+        pacienteEntity.setDataNascimento(paciente.getDataNascimento());
+        pacienteEntity.setIdPaciente(paciente.getIdPaciente());
+        return pacienteEntity;
+    }
+
+    public void atualizarProdutoEntity(PacienteEntity pacienteEntity, Paciente paciente){
         paciente.setNome(pacienteEntity.getNome());
         paciente.setDataNascimento(pacienteEntity.getDataNascimento());
-
     }
 }
