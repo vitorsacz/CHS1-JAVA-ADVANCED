@@ -1,12 +1,13 @@
 package br.com.OdontoPredict.OdontoPredict.adapter.http.dto;
 
+import br.com.OdontoPredict.OdontoPredict.adapter.http.request.DentistaCreatRequest;
+import br.com.OdontoPredict.OdontoPredict.adapter.http.request.PacienteCreateRequest;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 import java.util.Date;
 
@@ -20,11 +21,11 @@ public class ConsultaDto {
 
     @JsonProperty("paciente")
     @NotNull(message = "O paciente é obrigatório.")
-    private PacienteDto paciente;
+    private PacienteCreateRequest paciente;
 
     @JsonProperty("dentista")
     @NotNull(message = "O dentista é obrigatório.")
-    private DentistaDto dentista;
+    private DentistaCreatRequest dentista;
 
     @JsonProperty("data_consulta")
     @NotNull(message = "A data da consulta é obrigatória.")

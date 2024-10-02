@@ -1,6 +1,7 @@
 package br.com.OdontoPredict.OdontoPredict.adapter.repository.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,10 +19,10 @@ public class DentistaEntity {
     @Column(name = "id_dentista")
     private String idDentista;
 
-    @Column(name = "nome_dentista")
+    @Column(name = "nome_dentista", nullable = false)
     private String nome;
 
-    @Column(name = "especializacao")
+    @Column(name = "especializacao", nullable = false)
     private String especializacao;
 
     @OneToMany(mappedBy = "dentista")

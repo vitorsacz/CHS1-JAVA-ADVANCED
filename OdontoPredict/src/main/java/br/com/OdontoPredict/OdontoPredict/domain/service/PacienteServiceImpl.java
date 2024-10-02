@@ -1,7 +1,7 @@
 package br.com.OdontoPredict.OdontoPredict.domain.service;
 
 import br.com.OdontoPredict.OdontoPredict.adapter.repository.entity.PacienteEntity;
-import br.com.OdontoPredict.OdontoPredict.adapter.repository.mapper.PacienteEntityMapper;
+import br.com.OdontoPredict.OdontoPredict.adapter.repository.mapper.PacienteMapper;
 import br.com.OdontoPredict.OdontoPredict.domain.exception.PacienteNotFoundException;
 import br.com.OdontoPredict.OdontoPredict.domain.model.Paciente;
 import br.com.OdontoPredict.OdontoPredict.domain.ports.out.PacientePortOut;
@@ -19,7 +19,7 @@ public class PacienteServiceImpl implements PacienteService{
     private PacientePortOut pacientePortOut;
 
     @Autowired
-    private PacienteEntityMapper pacienteMapper;
+    private PacienteMapper pacienteMapper;
 
     @Override
     public void cadastarPaciente(Paciente paciente) {
@@ -46,14 +46,19 @@ public class PacienteServiceImpl implements PacienteService{
 
     @Override
     public Optional<Paciente> atualizarPaciente(String id, Paciente paciente) {
-        Optional<PacienteEntity> pacienteExistente = pacientePortOut.findById(id);
-        if (pacienteExistente.isPresent()) {
-            PacienteEntity autualizar = pacienteExistente.get();
-            pacienteMapper.atualizarProdutoEntity(autualizar, paciente);
 
-            PacienteEntity entidadeAtualizada = pacientePortOut.save(autualizar);
-            Paciente pacienteAtualizado = pacienteMapper.converterPaciente(entidadeAtualizada);
+        Optional<PacienteEntity> pacienteExistente = pacientePortOut.findById(id);
+
+        if (pacienteExistente.isPresent()) {
+
+            PacienteEntity autualizar = pacienteExistente.get();
+            pacienteMapper.atualizarPacienteEntity(autualizar, paciente);
+
+            PacienteEntity pacienteAtualizada = pacientePortOut.save(autualizar);
+            Paciente pacienteAtualizado = pacienteMapper.converterAtualizacaoDoPaciente(pacienteAtualizada);
+
             return Optional.of(pacienteAtualizado);
+
         } else {
             return Optional.empty();
         }
@@ -62,10 +67,15 @@ public class PacienteServiceImpl implements PacienteService{
 
     @Override
     public boolean excluirPaciente(String id) {
+
         Optional<PacienteEntity> pacienteExistente = pacientePortOut.findById(id);
+
         if (pacienteExistente.isPresent()) {
+
             pacientePortOut.deleteById(id);
+
             return true;
+
         } else {
             return false;
         }
@@ -74,9 +84,13 @@ public class PacienteServiceImpl implements PacienteService{
     @Override
     public Paciente buscarPaciente(String id) {
         Optional<PacienteEntity> pacienteDetalhado = pacientePortOut.findById(id);
+
         if(pacienteDetalhado.isPresent()){
+
             Paciente paciente = pacienteMapper.converterPaciente(pacienteDetalhado.get());
+
             return paciente;
+
         } else {
             throw new PacienteNotFoundException();
         }

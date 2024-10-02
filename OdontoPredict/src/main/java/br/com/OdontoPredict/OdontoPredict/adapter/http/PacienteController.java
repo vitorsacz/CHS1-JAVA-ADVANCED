@@ -1,6 +1,7 @@
 package br.com.OdontoPredict.OdontoPredict.adapter.http;
 
-import br.com.OdontoPredict.OdontoPredict.adapter.http.dto.PacienteDto;
+import br.com.OdontoPredict.OdontoPredict.adapter.http.request.PacienteCreateRequest;
+import br.com.OdontoPredict.OdontoPredict.adapter.http.request.PacienteUpdateRequest;
 import br.com.OdontoPredict.OdontoPredict.adapter.http.dto.mapper.PacienteDtoMapper;
 import br.com.OdontoPredict.OdontoPredict.domain.model.Paciente;
 import br.com.OdontoPredict.OdontoPredict.domain.service.PacienteService;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/paciente")
@@ -26,9 +26,9 @@ public class PacienteController {
     private PacienteDtoMapper pacienteDtoMapper;
 
     @PostMapping
-    public ResponseEntity<Paciente> cadastrarPaciente(@RequestBody @Valid PacienteDto pacienteDto) {
+    public ResponseEntity<Paciente> cadastrarPaciente(@RequestBody @Valid PacienteCreateRequest pacienteDto) {
 
-        Paciente paciente = pacienteDtoMapper.converter(pacienteDto);
+        Paciente paciente = pacienteDtoMapper.converterPacienteDto(pacienteDto);
 
         pacienteService.cadastarPaciente(paciente);
         return ResponseEntity.ok(paciente);
@@ -40,9 +40,10 @@ public class PacienteController {
         return ResponseEntity.ok(pacientes);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Paciente> atualizarPaciente(@PathVariable String id, @RequestBody @Valid PacienteDto pacienteDto) {
-        Paciente paciente = pacienteDtoMapper.converter(pacienteDto);
+    @PatchMapping("/{id}")
+    public ResponseEntity<Paciente> atualizarPaciente(@PathVariable String id, @RequestBody @Valid PacienteUpdateRequest pacienteUpdateDtoDto) {
+
+        Paciente paciente = pacienteDtoMapper.converterPacienUpdateteDto(pacienteUpdateDtoDto);
 
         Optional<Paciente> atualizado = pacienteService.atualizarPaciente(id, paciente);
         if (atualizado.isPresent()) {

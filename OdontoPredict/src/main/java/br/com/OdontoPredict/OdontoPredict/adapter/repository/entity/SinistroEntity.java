@@ -14,7 +14,7 @@ public class SinistroEntity {
 
     @Id
     @Column(name = "id_sinistro")
-    private Long idSinistro;
+    private String idSinistro;
 
     @ManyToOne
     @JoinColumn(name = "id_consulta")
