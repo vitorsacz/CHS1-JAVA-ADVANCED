@@ -15,7 +15,7 @@ import lombok.NonNull;
 public class SinistroDto {
 
     @JsonProperty("id_sinistro")
-    private Long idSinistro;
+    private String idSinistro;
 
     @JsonProperty("consulta")
     @NotNull(message = "A consulta é obrigatória.")

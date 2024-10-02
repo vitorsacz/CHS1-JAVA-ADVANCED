@@ -18,10 +18,10 @@ public class PacienteEntity {
     @Column(name = "id_paciente")
     private String idPaciente;
 
-    @Column(name = "nome")
+    @Column(name = "nome", nullable = false)
     private String nome;
 
-    @Column(name = "data_nascimento")
+    @Column(name = "data_nascimento", nullable = false)
     private String dataNascimento;
 
 

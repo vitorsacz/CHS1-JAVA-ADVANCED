@@ -1,31 +1,26 @@
-package br.com.OdontoPredict.OdontoPredict.adapter.http.dto;
-
+package br.com.OdontoPredict.OdontoPredict.adapter.http.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class DentistaDto {
+public class DentistaUpdateRequest {
 
     @JsonProperty("id_dentista")
     private String idDentista;
 
     @JsonProperty("nome_dentista")
-    @NotBlank(message = "O nome do dentista é obrigatório.")
+    @NotNull
     private String nome;
 
     @JsonProperty("especializacao")
-    @NotBlank(message = "A especialização do dentista é obrigatória.")
+    @NotNull
     private String especializacao;
-
-    @JsonProperty("consultas")
-    private List<ConsultaDto> consultas;
-
 }

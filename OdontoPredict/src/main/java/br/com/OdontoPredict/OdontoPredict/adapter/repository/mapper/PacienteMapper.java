@@ -5,7 +5,7 @@ import br.com.OdontoPredict.OdontoPredict.domain.model.Paciente;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PacienteEntityMapper {
+public class PacienteMapper {
 
     public Paciente converterPaciente(PacienteEntity pacienteEntity){
         Paciente paciente = new Paciente();
@@ -23,8 +23,13 @@ public class PacienteEntityMapper {
         return pacienteEntity;
     }
 
-    public void atualizarProdutoEntity(PacienteEntity pacienteEntity, Paciente paciente){
+    public Paciente converterAtualizacaoDoPaciente(PacienteEntity pacienteEntity){
+        Paciente paciente = new Paciente();
         paciente.setNome(pacienteEntity.getNome());
-        paciente.setDataNascimento(pacienteEntity.getDataNascimento());
+        return paciente;
+    }
+
+    public void atualizarPacienteEntity(PacienteEntity pacienteEntity, Paciente paciente){
+        pacienteEntity.setNome(paciente.getNome());
     }
 }
