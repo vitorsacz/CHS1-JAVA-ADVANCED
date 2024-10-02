@@ -9,7 +9,7 @@ public class DentistaNotFoudException extends RuntimeException {
     public static final int HTTP_STATUS_CODE = HttpStatus.NOT_FOUND.value();
 
 
-    public DentistaNotFoudException(String message) {
+    public DentistaNotFoudException() {
         super(DEFAULT_MENSAGEM);
     }
 }

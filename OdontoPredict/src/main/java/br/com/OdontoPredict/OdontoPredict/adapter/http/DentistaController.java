@@ -4,9 +4,11 @@ import br.com.OdontoPredict.OdontoPredict.adapter.http.dto.mapper.DentistaDtoMap
 import br.com.OdontoPredict.OdontoPredict.adapter.http.request.DentistaCreatRequest;
 import br.com.OdontoPredict.OdontoPredict.adapter.http.request.DentistaUpdateRequest;
 import br.com.OdontoPredict.OdontoPredict.domain.model.Dentista;
+import br.com.OdontoPredict.OdontoPredict.domain.model.Paciente;
 import br.com.OdontoPredict.OdontoPredict.domain.service.DentistaService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -49,6 +51,26 @@ public class DentistaController {
         if (atualiza.isPresent()) {
             return ResponseEntity.ok(atualiza.get());
         }else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Dentista> buscarDentistaPorID(@PathVariable String id) {
+        Dentista dentista = dentistaService.buscarDentista(id);
+        if (dentista != null) {
+            return new ResponseEntity<>(dentista, HttpStatus.OK);
+        }else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<Dentista> deletarDentista(@PathVariable String id) {
+        boolean deletado = dentistaService.removerDentista(id);
+        if (deletado) {
+            return ResponseEntity.noContent().build();
+        } else {
             return ResponseEntity.notFound().build();
         }
     }

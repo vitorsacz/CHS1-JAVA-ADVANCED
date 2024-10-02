@@ -13,7 +13,7 @@ public interface DentistaService {
 
     Optional<Dentista> atualizarDentista(String id, Dentista dentista);
 
-    boolean removerDentista(Dentista dentista);
+    boolean removerDentista(String id);
 
     Dentista buscarDentista(String id);
 }
