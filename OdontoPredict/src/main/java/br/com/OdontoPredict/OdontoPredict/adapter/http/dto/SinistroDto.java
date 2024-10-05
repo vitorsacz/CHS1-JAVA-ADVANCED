@@ -1,5 +1,6 @@
 package br.com.OdontoPredict.OdontoPredict.adapter.http.dto;
 
+import br.com.OdontoPredict.OdontoPredict.adapter.http.request.ConsultaCreatRequest;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -19,7 +20,7 @@ public class SinistroDto {
 
     @JsonProperty("consulta")
     @NotNull(message = "A consulta é obrigatória.")
-    private ConsultaDto consulta;
+    private ConsultaCreatRequest consulta;
 
     @JsonProperty("causa")
     @NotBlank(message = "A causa do sinistro é obrigatória.")

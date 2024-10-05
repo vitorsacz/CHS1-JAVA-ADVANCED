@@ -13,6 +13,7 @@ public class DentistaMapper {
         DentistaEntity dentistaEntity = new DentistaEntity();
         dentistaEntity.setIdDentista(dentista.getIdDentista());
         dentistaEntity.setNome(dentista.getNome());
+        dentistaEntity.setDocumento(dentista.getDocumento());
         dentistaEntity.setEspecializacao(dentista.getEspecializacao());
         return dentistaEntity;
     }
@@ -21,6 +22,7 @@ public class DentistaMapper {
         Dentista dentista = new Dentista();
         dentista.setIdDentista(dentistaEntity.getIdDentista());
         dentista.setNome(dentistaEntity.getNome());
+        dentista.setDocumento(dentistaEntity.getDocumento());
         dentista.setEspecializacao(dentistaEntity.getEspecializacao());
         return dentista;
     }

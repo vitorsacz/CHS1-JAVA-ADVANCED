@@ -4,4 +4,6 @@ import br.com.OdontoPredict.OdontoPredict.adapter.repository.entity.DentistaEnti
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface DentistaPortOut extends JpaRepository<DentistaEntity, String> {
+
+    public DentistaEntity findByDocumento(String documento);
 }

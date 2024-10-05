@@ -12,6 +12,7 @@ public class PacienteDtoMapper {
     public Paciente converterPacienteDto(PacienteCreateRequest pacienteCreateRequest) {
         Paciente paciente = new Paciente();
         paciente.setNome(pacienteCreateRequest.getNome());
+        paciente.setCpf(pacienteCreateRequest.getCpf());
         paciente.setDataNascimento(pacienteCreateRequest.getDataNascimento());
         return paciente;
     }

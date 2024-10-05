@@ -4,7 +4,6 @@ import br.com.OdontoPredict.OdontoPredict.adapter.http.dto.mapper.DentistaDtoMap
 import br.com.OdontoPredict.OdontoPredict.adapter.http.request.DentistaCreatRequest;
 import br.com.OdontoPredict.OdontoPredict.adapter.http.request.DentistaUpdateRequest;
 import br.com.OdontoPredict.OdontoPredict.domain.model.Dentista;
-import br.com.OdontoPredict.OdontoPredict.domain.model.Paciente;
 import br.com.OdontoPredict.OdontoPredict.domain.service.DentistaService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,7 +64,7 @@ public class DentistaController {
         }
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Dentista> deletarDentista(@PathVariable String id) {
         boolean deletado = dentistaService.removerDentista(id);
         if (deletado) {

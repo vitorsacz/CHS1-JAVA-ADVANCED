@@ -10,6 +10,7 @@ public class PacienteMapper {
     public Paciente converterPaciente(PacienteEntity pacienteEntity){
         Paciente paciente = new Paciente();
         paciente.setNome(pacienteEntity.getNome());
+        paciente.setCpf(pacienteEntity.getCpf());
         paciente.setDataNascimento(pacienteEntity.getDataNascimento());
         paciente.setIdPaciente(pacienteEntity.getIdPaciente());
         return paciente;
@@ -18,6 +19,7 @@ public class PacienteMapper {
     public PacienteEntity converterPacienteEntity(Paciente paciente){
         PacienteEntity pacienteEntity = new PacienteEntity();
         pacienteEntity.setNome(paciente.getNome());
+        pacienteEntity.setCpf(paciente.getCpf());
         pacienteEntity.setDataNascimento(paciente.getDataNascimento());
         pacienteEntity.setIdPaciente(paciente.getIdPaciente());
         return pacienteEntity;

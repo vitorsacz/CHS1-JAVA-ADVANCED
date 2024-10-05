@@ -22,6 +22,9 @@ public class DentistaEntity {
     @Column(name = "nome_dentista", nullable = false)
     private String nome;
 
+    @Column(name = "documento", nullable = false)
+    private String documento;
+
     @Column(name = "especializacao", nullable = false)
     private String especializacao;
 

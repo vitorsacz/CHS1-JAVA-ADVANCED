@@ -13,6 +13,7 @@ public class DentistaDtoMapper {
     public Dentista createDentista(DentistaCreatRequest dentistaCreatRequest) {
         Dentista dentista = new Dentista();
         dentista.setNome(dentistaCreatRequest.getNome());
+        dentista.setDocumento(dentistaCreatRequest.getDocumento());
         dentista.setEspecializacao(dentistaCreatRequest.getEspecializacao());
         return dentista;
     }
