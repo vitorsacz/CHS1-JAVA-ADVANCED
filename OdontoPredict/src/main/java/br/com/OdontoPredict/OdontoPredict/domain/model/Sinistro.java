@@ -1,16 +1,19 @@
 package br.com.OdontoPredict.OdontoPredict.domain.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import java.util.UUID;
 
-@AllArgsConstructor
-@NoArgsConstructor
+
 @Data
 public class Sinistro {
 
-    private String id;
+    private String idSinistro;
     private Consulta consulta;
     private String causa;
     private double custo;
+
+    public Sinistro(){
+        this.idSinistro = UUID.randomUUID().toString();
+    }
+
 }

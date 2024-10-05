@@ -1,6 +1,7 @@
 package br.com.OdontoPredict.OdontoPredict.adapter.http.exception;
 
 import br.com.OdontoPredict.OdontoPredict.adapter.http.dto.erros.ResponseErrors;
+import br.com.OdontoPredict.OdontoPredict.domain.exception.ConsultaNotFoudException;
 import br.com.OdontoPredict.OdontoPredict.domain.exception.DentistaNotFoudException;
 import br.com.OdontoPredict.OdontoPredict.domain.exception.PacienteNotFoundException;
 import org.springframework.http.ResponseEntity;
@@ -50,5 +51,12 @@ public class HttpExceptionHandler {
         ResponseErrors responseErro = new ResponseErrors();
         responseErro.setMensagem(dentistaNotFoudException.getMessage());
         return ResponseEntity.status(dentistaNotFoudException.HTTP_STATUS_CODE).body(responseErro);
+    }
+
+    @ExceptionHandler(ConsultaNotFoudException.class)
+    public  ResponseEntity<Object> tratarConsultaNotFoundException(ConsultaNotFoudException consultaNotFoudException){
+        ResponseErrors responseErro = new ResponseErrors();
+        responseErro.setMensagem(consultaNotFoudException.getMessage());
+        return ResponseEntity.status(consultaNotFoudException.HTTP_STATUS_CODE).body(responseErro);
     }
 }

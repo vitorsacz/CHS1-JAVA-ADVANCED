@@ -1,6 +1,5 @@
 package br.com.OdontoPredict.OdontoPredict.adapter.http.request;
 
-import br.com.OdontoPredict.OdontoPredict.adapter.http.dto.ConsultaDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -21,11 +20,15 @@ public class DentistaCreatRequest {
     @NotBlank(message = "O nome do dentista é obrigatório.")
     private String nome;
 
+    @JsonProperty("documento_dentista")
+    @NotBlank(message = "O documento do dentista é obrigatório.")
+    private String documento;
+
     @JsonProperty("especializacao")
     @NotBlank(message = "A especialização do dentista é obrigatória.")
     private String especializacao;
 
     @JsonProperty("consultas")
-    private List<ConsultaDto> consultas;
+    private List<ConsultaCreatRequest> consultas;
 
 }

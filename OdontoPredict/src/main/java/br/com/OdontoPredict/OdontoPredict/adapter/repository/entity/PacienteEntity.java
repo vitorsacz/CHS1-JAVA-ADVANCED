@@ -21,6 +21,9 @@ public class PacienteEntity {
     @Column(name = "nome", nullable = false)
     private String nome;
 
+    @Column(name = "cpf", nullable = false )
+    private String cpf;
+
     @Column(name = "data_nascimento", nullable = false)
     private String dataNascimento;
 

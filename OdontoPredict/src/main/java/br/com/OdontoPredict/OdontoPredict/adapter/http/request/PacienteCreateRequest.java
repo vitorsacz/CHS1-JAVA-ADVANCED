@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,8 +22,17 @@ public class PacienteCreateRequest {
     @NotEmpty
     private String nome;
 
+    @JsonProperty("cpf")
+    @NotNull
+    @NotEmpty
+    private String cpf;
+
+
     @JsonProperty("data_nascimento")
     @NotNull
     @NotEmpty
     private String dataNascimento;
+
+    @JsonProperty("consultas")
+    private List<ConsultaCreatRequest> consultas;
 }
