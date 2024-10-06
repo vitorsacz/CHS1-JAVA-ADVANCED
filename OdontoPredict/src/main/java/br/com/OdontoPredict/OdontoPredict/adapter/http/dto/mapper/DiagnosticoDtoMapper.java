@@ -1,7 +1,7 @@
 package br.com.OdontoPredict.OdontoPredict.adapter.http.dto.mapper;
 
-import br.com.OdontoPredict.OdontoPredict.adapter.http.request.DiagnosticoCreateDto;
-import br.com.OdontoPredict.OdontoPredict.adapter.http.request.DiagnosticoUpdateRequest;
+import br.com.OdontoPredict.OdontoPredict.adapter.http.dto.request.DiagnosticoCreateDto;
+import br.com.OdontoPredict.OdontoPredict.adapter.http.dto.request.DiagnosticoUpdateRequest;
 import br.com.OdontoPredict.OdontoPredict.domain.model.Diagnostico;
 import org.springframework.stereotype.Component;
 

@@ -1,8 +1,8 @@
 package br.com.OdontoPredict.OdontoPredict.adapter.http;
 
 import br.com.OdontoPredict.OdontoPredict.adapter.http.dto.mapper.DiagnosticoDtoMapper;
-import br.com.OdontoPredict.OdontoPredict.adapter.http.request.DiagnosticoCreateDto;
-import br.com.OdontoPredict.OdontoPredict.adapter.http.request.DiagnosticoUpdateRequest;
+import br.com.OdontoPredict.OdontoPredict.adapter.http.dto.request.DiagnosticoCreateDto;
+import br.com.OdontoPredict.OdontoPredict.adapter.http.dto.request.DiagnosticoUpdateRequest;
 import br.com.OdontoPredict.OdontoPredict.domain.model.Diagnostico;
 import br.com.OdontoPredict.OdontoPredict.domain.service.DiagnosticoService;
 import jakarta.validation.Valid;
