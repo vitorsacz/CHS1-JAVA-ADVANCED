@@ -2,8 +2,11 @@
 # OdontoPredict
 
 #Aluno	RM
+
 #Keven Ike Pereira da Silva	553215
-#Vitor Cruz dos Santos  553621      
+
+#Vitor Cruz dos Santos  553621
+
 #José Ribeiro dos Santos Neto 553844
 
 ## Descrição
