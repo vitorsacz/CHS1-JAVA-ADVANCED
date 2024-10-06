@@ -71,6 +71,3 @@ O OdontoPredict busca oferecer uma estrutura robusta e eficiente para a identifi
 3. Navegue até o diretório do projeto.
 4. Execute o comando `mvn spring-boot:run` para iniciar a aplicação.
 
-## Licença
-
-Este projeto está licenciado sob a [MIT License](LICENSE).
