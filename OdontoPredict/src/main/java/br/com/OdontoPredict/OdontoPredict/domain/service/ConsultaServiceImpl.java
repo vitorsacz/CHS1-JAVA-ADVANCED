@@ -2,14 +2,17 @@ package br.com.OdontoPredict.OdontoPredict.domain.service;
 
 import br.com.OdontoPredict.OdontoPredict.adapter.repository.entity.ConsultaEntity;
 import br.com.OdontoPredict.OdontoPredict.adapter.repository.entity.DentistaEntity;
+import br.com.OdontoPredict.OdontoPredict.adapter.repository.entity.DiagnosticoEntity;
 import br.com.OdontoPredict.OdontoPredict.adapter.repository.entity.PacienteEntity;
 import br.com.OdontoPredict.OdontoPredict.adapter.repository.mapper.ConsultaMapper;
 import br.com.OdontoPredict.OdontoPredict.adapter.repository.mapper.DentistaMapper;
+import br.com.OdontoPredict.OdontoPredict.adapter.repository.mapper.DiagnosticoMapper;
 import br.com.OdontoPredict.OdontoPredict.adapter.repository.mapper.PacienteMapper;
 import br.com.OdontoPredict.OdontoPredict.domain.exception.ConsultaNotFoudException;
 import br.com.OdontoPredict.OdontoPredict.domain.model.Consulta;
 import br.com.OdontoPredict.OdontoPredict.domain.ports.out.ConsultaPortOut;
 import br.com.OdontoPredict.OdontoPredict.domain.ports.out.DentistaPortOut;
+import br.com.OdontoPredict.OdontoPredict.domain.ports.out.DiagnosticoPortOut;
 import br.com.OdontoPredict.OdontoPredict.domain.ports.out.PacientePortOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,6 +42,12 @@ public class ConsultaServiceImpl implements ConsultaService {
     @Autowired
     private DentistaPortOut dentistaPortOut;
 
+    @Autowired
+    private DiagnosticoPortOut diagnosticoPortOut;
+
+    @Autowired
+    private DiagnosticoMapper diagnosticoMapper;
+
     @Override
     public void cadastrarConsulta(Consulta consulta) {
 
@@ -47,6 +56,9 @@ public class ConsultaServiceImpl implements ConsultaService {
 
         DentistaEntity dentista = dentistaPortOut.findByDocumento(consulta.getDentista().getDocumento());
         consulta.setDentista(dentistaMapper.converteDentista(dentista));
+
+        DiagnosticoEntity diagnotico = diagnosticoPortOut.findById(consulta.getDiagnostico().getIdDiagnostico()).get();
+        consulta.setDiagnostico(diagnosticoMapper.converteDiagnostico(diagnotico));
 
         ConsultaEntity consultaEntity = consultaMapper.converteConsultaEntity(consulta);
 

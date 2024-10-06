@@ -15,8 +15,8 @@ public class ConsultaMapper {
     @Autowired
     private DentistaMapper dentistaMapper;
 
-//    @Autowired
-//    private DiagnosticoMapper diagnosticoMapper;
+   @Autowired
+    private DiagnosticoMapper diagnosticoMapper;
 
     public ConsultaEntity converteConsultaEntity(Consulta consulta) {
         ConsultaEntity consultaEntity = new ConsultaEntity();
@@ -33,8 +33,10 @@ public class ConsultaMapper {
             consultaEntity.setDentista(dentistaMapper.converteDentistaEntity(consulta.getDentista()));
         }
 
+        if (consulta.getDiagnostico() != null) {
+            consultaEntity.setDiagnostico(diagnosticoMapper.converteDiagnosticoEntity(consulta.getDiagnostico()));
+        }
 
-            //consultaEntity.setDiagnostico(diagnosticoMapper.converteDiagnosticoEntity(consulta.getDiagnostico()));
 
         return consultaEntity;
     }
@@ -48,7 +50,7 @@ public class ConsultaMapper {
 
         consulta.setPaciente(pacienteMapper.converterPaciente(consultaEntity.getPaciente()));
         consulta.setDentista(dentistaMapper.converteDentista(consultaEntity.getDentista()));
-        //consulta.setDiagnostico(diagnosticoMapper.converteDiagnostico(consultaEntity.getDiagnostico()));
+        consulta.setDiagnostico(diagnosticoMapper.converteDiagnostico(consultaEntity.getDiagnostico()));
 
         return consulta;
     }
