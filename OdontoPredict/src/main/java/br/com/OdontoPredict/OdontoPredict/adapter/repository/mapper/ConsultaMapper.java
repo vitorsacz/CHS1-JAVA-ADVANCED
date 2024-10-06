@@ -1,6 +1,5 @@
 package br.com.OdontoPredict.OdontoPredict.adapter.repository.mapper;
 
-import br.com.OdontoPredict.OdontoPredict.adapter.http.request.ConsultaCreatRequest;
 import br.com.OdontoPredict.OdontoPredict.adapter.repository.entity.ConsultaEntity;
 import br.com.OdontoPredict.OdontoPredict.domain.model.Consulta;
 import org.springframework.beans.factory.annotation.Autowired;

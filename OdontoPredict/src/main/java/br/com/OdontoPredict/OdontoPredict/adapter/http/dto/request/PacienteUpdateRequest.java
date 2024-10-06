@@ -1,4 +1,4 @@
-package br.com.OdontoPredict.OdontoPredict.adapter.http.response;
+package br.com.OdontoPredict.OdontoPredict.adapter.http.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotEmpty;
@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
-public class PacienteListaResponse {
+public class PacienteUpdateRequest {
 
     @JsonProperty("id_paciente")
     private String idPaciente;
@@ -15,9 +15,4 @@ public class PacienteListaResponse {
     @NotNull
     @NotEmpty
     private String nome;
-
-    @JsonProperty("data_nascimento")
-    @NotNull
-    @NotEmpty
-    private String dataNascimento;
 }

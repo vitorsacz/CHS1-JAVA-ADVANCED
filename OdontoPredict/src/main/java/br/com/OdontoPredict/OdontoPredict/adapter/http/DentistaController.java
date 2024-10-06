@@ -1,8 +1,8 @@
 package br.com.OdontoPredict.OdontoPredict.adapter.http;
 
 import br.com.OdontoPredict.OdontoPredict.adapter.http.dto.mapper.DentistaDtoMapper;
-import br.com.OdontoPredict.OdontoPredict.adapter.http.request.DentistaCreatRequest;
-import br.com.OdontoPredict.OdontoPredict.adapter.http.request.DentistaUpdateRequest;
+import br.com.OdontoPredict.OdontoPredict.adapter.http.dto.request.DentistaCreatRequest;
+import br.com.OdontoPredict.OdontoPredict.adapter.http.dto.request.DentistaUpdateRequest;
 import br.com.OdontoPredict.OdontoPredict.domain.model.Dentista;
 import br.com.OdontoPredict.OdontoPredict.domain.service.DentistaService;
 import jakarta.validation.Valid;

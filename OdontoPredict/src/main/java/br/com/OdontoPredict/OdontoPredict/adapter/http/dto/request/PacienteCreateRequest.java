@@ -1,4 +1,4 @@
-package br.com.OdontoPredict.OdontoPredict.adapter.http.request;
+package br.com.OdontoPredict.OdontoPredict.adapter.http.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotEmpty;
