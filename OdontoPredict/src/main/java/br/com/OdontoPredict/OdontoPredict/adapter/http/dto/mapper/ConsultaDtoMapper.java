@@ -1,8 +1,8 @@
 package br.com.OdontoPredict.OdontoPredict.adapter.http.dto.mapper;
 
 
-import br.com.OdontoPredict.OdontoPredict.adapter.http.request.ConsultaCreatRequest;
-import br.com.OdontoPredict.OdontoPredict.adapter.http.request.ConsultaUpdateRequest;
+import br.com.OdontoPredict.OdontoPredict.adapter.http.dto.request.ConsultaCreatRequest;
+import br.com.OdontoPredict.OdontoPredict.adapter.http.dto.request.ConsultaUpdateRequest;
 import br.com.OdontoPredict.OdontoPredict.domain.model.Consulta;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
