@@ -11,7 +11,4 @@ public class Diagnostico {
     private String descricao;
     private String recomendacao;
 
-    public Diagnostico(){
-        this.idDiagnostico = UUID.randomUUID().toString();
-    }
 }

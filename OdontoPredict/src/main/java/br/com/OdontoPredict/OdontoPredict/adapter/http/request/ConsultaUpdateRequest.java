@@ -1,5 +1,8 @@
 package br.com.OdontoPredict.OdontoPredict.adapter.http.request;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -14,6 +17,11 @@ import java.util.Date;
 @NoArgsConstructor
 public class ConsultaUpdateRequest {
 
+    @JsonIgnoreProperties
+    private PacienteCreateRequest paciente;
+
+    @JsonIgnoreProperties
+    private DentistaCreatRequest dentista;
 
     @JsonProperty("data_consulta")
     @NotNull(message = "A data da consulta é obrigatória.")
@@ -22,5 +30,9 @@ public class ConsultaUpdateRequest {
     @JsonProperty("tipo_tratamento")
     @NotBlank(message = "O tipo de tratamento é obrigatório.")
     private String tipoTratamento;
+
+
+    @JsonIgnoreProperties
+    private DiagnosticoCreateDto diagnostico;
 
 }

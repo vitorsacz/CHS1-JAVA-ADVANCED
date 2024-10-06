@@ -16,6 +16,9 @@ public class ConsultaDtoMapper {
     @Autowired
     private DentistaDtoMapper dentistaDtoMapper;
 
+    @Autowired
+    private DiagnosticoDtoMapper diagnosticoDtoMapper;
+
     public Consulta criandoDtoParaConsulta(ConsultaCreatRequest consultaCreatRequest) {
         Consulta consulta = new Consulta();
         consulta.setData(consultaCreatRequest.getData());
@@ -23,13 +26,15 @@ public class ConsultaDtoMapper {
 
         consulta.setPaciente(pacienteDtoMapper.converterPacienteDto(consultaCreatRequest.getPaciente()));
         consulta.setDentista(dentistaDtoMapper.createDentista(consultaCreatRequest.getDentista()));
+
+        consulta.setDiagnostico(diagnosticoDtoMapper.converteCreateDiagnostico(consultaCreatRequest.getDiagnostico()));
         return consulta;
     }
 
     public Consulta converterConsultaUpdateteDto(ConsultaUpdateRequest consultaUpdateRequest) {
         Consulta consulta = new Consulta();
         consulta.setData(consultaUpdateRequest.getData());
-        consulta.setData(consultaUpdateRequest.getData());
+        consulta.setTipoTratamento(consultaUpdateRequest.getTipoTratamento());
         return consulta;
     }
 }
