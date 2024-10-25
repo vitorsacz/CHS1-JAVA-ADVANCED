@@ -1,4 +1,4 @@
-package br.com.OdontoPredict.OdontoPredict;
+package br.com.PrevDent.PrevDent;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,10 +1,10 @@
-package br.com.OdontoPredict.OdontoPredict.domain.service;
+package br.com.PrevDent.PrevDent.domain.service;
 
-import br.com.OdontoPredict.OdontoPredict.adapter.repository.entity.DiagnosticoEntity;
-import br.com.OdontoPredict.OdontoPredict.adapter.repository.mapper.DiagnosticoMapper;
-import br.com.OdontoPredict.OdontoPredict.domain.exception.DiagnosticoNotFoundException;
-import br.com.OdontoPredict.OdontoPredict.domain.model.Diagnostico;
-import br.com.OdontoPredict.OdontoPredict.domain.ports.out.DiagnosticoPortOut;
+import br.com.PrevDent.PrevDent.adapter.repository.entity.DiagnosticoEntity;
+import br.com.PrevDent.PrevDent.adapter.repository.mapper.DiagnosticoMapper;
+import br.com.PrevDent.PrevDent.domain.exception.DiagnosticoNotFoundException;
+import br.com.PrevDent.PrevDent.domain.model.Diagnostico;
+import br.com.PrevDent.PrevDent.domain.ports.out.DiagnosticoPortOut;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

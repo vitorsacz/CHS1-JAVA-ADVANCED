@@ -1,4 +1,4 @@
-package br.com.OdontoPredict.OdontoPredict;
+package br.com.PrevDent.PrevDent;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

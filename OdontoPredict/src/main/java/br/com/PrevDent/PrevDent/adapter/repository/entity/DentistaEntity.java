@@ -1,7 +1,6 @@
-package br.com.OdontoPredict.OdontoPredict.adapter.repository.entity;
+package br.com.PrevDent.PrevDent.adapter.repository.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

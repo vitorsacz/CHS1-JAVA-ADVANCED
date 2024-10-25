@@ -1,4 +1,4 @@
-package br.com.OdontoPredict.OdontoPredict.adapter.http.dto.request;
+package br.com.PrevDent.PrevDent.adapter.http.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

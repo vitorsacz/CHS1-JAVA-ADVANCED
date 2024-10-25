@@ -1,10 +1,10 @@
-package br.com.OdontoPredict.OdontoPredict.domain.service;
+package br.com.PrevDent.PrevDent.domain.service;
 
-import br.com.OdontoPredict.OdontoPredict.adapter.repository.entity.PacienteEntity;
-import br.com.OdontoPredict.OdontoPredict.adapter.repository.mapper.PacienteMapper;
-import br.com.OdontoPredict.OdontoPredict.domain.exception.PacienteNotFoundException;
-import br.com.OdontoPredict.OdontoPredict.domain.model.Paciente;
-import br.com.OdontoPredict.OdontoPredict.domain.ports.out.PacientePortOut;
+import br.com.PrevDent.PrevDent.adapter.repository.entity.PacienteEntity;
+import br.com.PrevDent.PrevDent.adapter.repository.mapper.PacienteMapper;
+import br.com.PrevDent.PrevDent.domain.exception.PacienteNotFoundException;
+import br.com.PrevDent.PrevDent.domain.model.Paciente;
+import br.com.PrevDent.PrevDent.domain.ports.out.PacientePortOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

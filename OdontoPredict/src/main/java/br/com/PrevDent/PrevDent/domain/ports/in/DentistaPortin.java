@@ -1,4 +1,4 @@
-package br.com.OdontoPredict.OdontoPredict.domain.ports.in;
+package br.com.PrevDent.PrevDent.domain.ports.in;
 
 public interface DentistaPortin<Entrada, Saida> {
 

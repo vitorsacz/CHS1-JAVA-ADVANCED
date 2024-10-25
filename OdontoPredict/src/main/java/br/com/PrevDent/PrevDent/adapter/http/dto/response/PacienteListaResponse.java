@@ -1,4 +1,4 @@
-package br.com.OdontoPredict.OdontoPredict.adapter.http.dto.response;
+package br.com.PrevDent.PrevDent.adapter.http.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotEmpty;

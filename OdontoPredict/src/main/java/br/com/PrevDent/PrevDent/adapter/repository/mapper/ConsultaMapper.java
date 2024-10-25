@@ -1,7 +1,7 @@
-package br.com.OdontoPredict.OdontoPredict.adapter.repository.mapper;
+package br.com.PrevDent.PrevDent.adapter.repository.mapper;
 
-import br.com.OdontoPredict.OdontoPredict.adapter.repository.entity.ConsultaEntity;
-import br.com.OdontoPredict.OdontoPredict.domain.model.Consulta;
+import br.com.PrevDent.PrevDent.adapter.repository.entity.ConsultaEntity;
+import br.com.PrevDent.PrevDent.domain.model.Consulta;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
