@@ -27,7 +27,6 @@ public class PacienteEntity {
     @Column(name = "data_nascimento", nullable = false)
     private String dataNascimento;
 
-
     @OneToMany(mappedBy = "paciente")
     private List<ConsultaEntity> consultas;
 }
