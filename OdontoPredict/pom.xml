@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.OdontoPredict</groupId>
-	<artifactId>OdontoPredict</artifactId>
+	<artifactId>PrevDent</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>OdontoPredict</name>
 	<description>Demo project for Spring Boot</description>
