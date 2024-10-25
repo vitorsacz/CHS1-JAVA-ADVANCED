@@ -1,4 +1,4 @@
-package br.com.OdontoPredict.OdontoPredict.adapter.repository.entity;
+package br.com.PrevDent.PrevDent.adapter.repository.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

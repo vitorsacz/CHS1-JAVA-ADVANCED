@@ -1,4 +1,4 @@
-package br.com.OdontoPredict.OdontoPredict.adapter.http.dto.erros;
+package br.com.PrevDent.PrevDent.adapter.http.dto.erros;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;

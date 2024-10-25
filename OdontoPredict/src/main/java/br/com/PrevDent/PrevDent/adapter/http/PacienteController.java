@@ -1,10 +1,10 @@
-package br.com.OdontoPredict.OdontoPredict.adapter.http;
+package br.com.PrevDent.PrevDent.adapter.http;
 
-import br.com.OdontoPredict.OdontoPredict.adapter.http.dto.request.PacienteCreateRequest;
-import br.com.OdontoPredict.OdontoPredict.adapter.http.dto.request.PacienteUpdateRequest;
-import br.com.OdontoPredict.OdontoPredict.adapter.http.dto.mapper.PacienteDtoMapper;
-import br.com.OdontoPredict.OdontoPredict.domain.model.Paciente;
-import br.com.OdontoPredict.OdontoPredict.domain.service.PacienteService;
+import br.com.PrevDent.PrevDent.adapter.http.dto.request.PacienteCreateRequest;
+import br.com.PrevDent.PrevDent.adapter.http.dto.request.PacienteUpdateRequest;
+import br.com.PrevDent.PrevDent.adapter.http.dto.mapper.PacienteDtoMapper;
+import br.com.PrevDent.PrevDent.domain.model.Paciente;
+import br.com.PrevDent.PrevDent.domain.service.PacienteService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -1,7 +1,7 @@
-package br.com.OdontoPredict.OdontoPredict.adapter.repository.mapper;
+package br.com.PrevDent.PrevDent.adapter.repository.mapper;
 
-import br.com.OdontoPredict.OdontoPredict.adapter.repository.entity.PacienteEntity;
-import br.com.OdontoPredict.OdontoPredict.domain.model.Paciente;
+import br.com.PrevDent.PrevDent.adapter.repository.entity.PacienteEntity;
+import br.com.PrevDent.PrevDent.domain.model.Paciente;
 import org.springframework.stereotype.Component;
 
 @Component

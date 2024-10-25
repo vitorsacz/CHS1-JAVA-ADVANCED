@@ -1,4 +1,4 @@
-package br.com.OdontoPredict.OdontoPredict.domain.model;
+package br.com.PrevDent.PrevDent.domain.model;
 
 import lombok.Data;
 

@@ -1,6 +1,6 @@
-package br.com.OdontoPredict.OdontoPredict.domain.service;
+package br.com.PrevDent.PrevDent.domain.service;
 
-import br.com.OdontoPredict.OdontoPredict.domain.model.Paciente;
+import br.com.PrevDent.PrevDent.domain.model.Paciente;
 
 import java.util.List;
 import java.util.Optional;

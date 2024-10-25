@@ -1,6 +1,6 @@
-package br.com.OdontoPredict.OdontoPredict.domain.ports.out;
+package br.com.PrevDent.PrevDent.domain.ports.out;
 
-import br.com.OdontoPredict.OdontoPredict.adapter.repository.entity.DentistaEntity;
+import br.com.PrevDent.PrevDent.adapter.repository.entity.DentistaEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface DentistaPortOut extends JpaRepository<DentistaEntity, String> {

@@ -1,10 +1,10 @@
-package br.com.OdontoPredict.OdontoPredict.adapter.http.exception;
+package br.com.PrevDent.PrevDent.adapter.http.exception;
 
-import br.com.OdontoPredict.OdontoPredict.adapter.http.dto.erros.ResponseErrors;
-import br.com.OdontoPredict.OdontoPredict.domain.exception.ConsultaNotFoudException;
-import br.com.OdontoPredict.OdontoPredict.domain.exception.DentistaNotFoudException;
-import br.com.OdontoPredict.OdontoPredict.domain.exception.DiagnosticoNotFoundException;
-import br.com.OdontoPredict.OdontoPredict.domain.exception.PacienteNotFoundException;
+import br.com.PrevDent.PrevDent.adapter.http.dto.erros.ResponseErrors;
+import br.com.PrevDent.PrevDent.domain.exception.ConsultaNotFoudException;
+import br.com.PrevDent.PrevDent.domain.exception.DentistaNotFoudException;
+import br.com.PrevDent.PrevDent.domain.exception.DiagnosticoNotFoundException;
+import br.com.PrevDent.PrevDent.domain.exception.PacienteNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;

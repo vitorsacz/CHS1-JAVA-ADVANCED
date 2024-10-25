@@ -1,4 +1,4 @@
-package br.com.OdontoPredict.OdontoPredict.domain.exception;
+package br.com.PrevDent.PrevDent.domain.exception;
 
 
 import org.springframework.http.HttpStatus;
