@@ -8,14 +8,14 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Entity(name = "dentista")
-@Table(name = "tbl_Dentista")
+@Table(name = "T_PD_CH_DENTISTA")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class DentistaEntity {
 
     @Id
-    @Column(name = "id_dentista")
+    @Column(name = "dentista_id")
     private String idDentista;
 
     @Column(name = "nome_dentista", nullable = false)
