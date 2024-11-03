@@ -67,4 +67,11 @@ public class HttpExceptionHandler {
         responseErro.setMensagem(diagnosticoNotFoundException.getMessage());
         return ResponseEntity.status(ConsultaNotFoudException.HTTP_STATUS_CODE).body(responseErro);
     }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<Object> tratarNovosRegistroNotFoundExceprion(Exception exception){
+        ResponseErrors responseErro = new ResponseErrors();
+        responseErro.setMensagem(exception.getMessage());
+        return ResponseEntity.status(ConsultaNotFoudException.HTTP_STATUS_CODE).body(responseErro);
+    }
 }
