@@ -8,14 +8,14 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 
 @Entity(name = "consulta")
-@Table(name = "T_PD_CH_CONSULTA")
+@Table(name = "tbl_consulta")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class ConsultaEntity {
 
     @Id
-    @Column(name = "consulta_id")
+    @Column(name = "id_consulta")
     private String idConsulta;
 
     @ManyToOne
@@ -33,7 +33,7 @@ public class ConsultaEntity {
     private String tipoTratamento;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "diagnostico_id", referencedColumnName = "diagnostico_id")
+    @JoinColumn(name = "diagnostico_id", referencedColumnName = "id_diagnostico")
     private DiagnosticoEntity diagnostico;
 
 }
