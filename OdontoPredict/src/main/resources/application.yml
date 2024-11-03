@@ -1,11 +1,9 @@
-spring:
+h2:
   datasource:
-    url: jdbc:oracle:thin:@oracle.fiap.com.br:1521:orcl
-    username: "RM553215"
-    password: "160701"
-    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: keven
+    password: 1234
   jpa:
     hibernate:
       ddl-auto: update
-
-

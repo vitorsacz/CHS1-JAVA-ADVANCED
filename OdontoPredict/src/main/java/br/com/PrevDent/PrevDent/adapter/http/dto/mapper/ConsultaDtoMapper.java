@@ -3,6 +3,7 @@ package br.com.PrevDent.PrevDent.adapter.http.dto.mapper;
 
 import br.com.PrevDent.PrevDent.adapter.http.dto.request.ConsultaCreatRequest;
 import br.com.PrevDent.PrevDent.adapter.http.dto.request.ConsultaUpdateRequest;
+import br.com.PrevDent.PrevDent.adapter.http.dto.response.ConsultaListaResponse;
 import br.com.PrevDent.PrevDent.domain.model.Consulta;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -35,6 +36,15 @@ public class ConsultaDtoMapper {
         Consulta consulta = new Consulta();
         consulta.setData(consultaUpdateRequest.getData());
         consulta.setTipoTratamento(consultaUpdateRequest.getTipoTratamento());
+        return consulta;
+    }
+
+    public  Consulta listarConsultaDto(ConsultaListaResponse consultaListaResponse) {
+        Consulta consulta = new Consulta();
+        consulta.setIdConsulta(consultaListaResponse.getIdConsulta());
+        consulta.setPaciente(pacienteDtoMapper.converterPacienteDto(consultaListaResponse.getPaciente()));
+        consulta.setDentista(dentistaDtoMapper.createDentista(consultaListaResponse.getDentista()));
+        consulta.setData(consultaListaResponse.getData());
         return consulta;
     }
 }

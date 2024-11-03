@@ -4,6 +4,7 @@ package br.com.PrevDent.PrevDent.adapter.http;
 import br.com.PrevDent.PrevDent.adapter.http.dto.mapper.ConsultaDtoMapper;
 import br.com.PrevDent.PrevDent.adapter.http.dto.request.ConsultaCreatRequest;
 import br.com.PrevDent.PrevDent.adapter.http.dto.request.ConsultaUpdateRequest;
+import br.com.PrevDent.PrevDent.adapter.http.dto.response.ConsultaListaResponse;
 import br.com.PrevDent.PrevDent.domain.model.Consulta;
 import br.com.PrevDent.PrevDent.domain.service.ConsultaService;
 import jakarta.validation.Valid;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/consulta")
@@ -39,6 +41,7 @@ public class ConsultaController {
         List<Consulta> consultas = consultaService.listarConsultas();
         return ResponseEntity.ok(consultas);
     }
+
 
     @PatchMapping("/{id}")
     public ResponseEntity<Consulta> atualizarConsulta(@PathVariable String id, @RequestBody @Valid ConsultaUpdateRequest consultaUpdateRequest) {
