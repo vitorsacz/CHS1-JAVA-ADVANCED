@@ -4,9 +4,11 @@ package br.com.PrevDent.PrevDent.adapter.http;
 import br.com.PrevDent.PrevDent.adapter.http.dto.mapper.ConsultaDtoMapper;
 import br.com.PrevDent.PrevDent.adapter.http.dto.request.ConsultaCreatRequest;
 import br.com.PrevDent.PrevDent.adapter.http.dto.request.ConsultaUpdateRequest;
-import br.com.PrevDent.PrevDent.adapter.http.dto.response.ConsultaListaResponse;
 import br.com.PrevDent.PrevDent.domain.model.Consulta;
 import br.com.PrevDent.PrevDent.domain.service.ConsultaService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,7 +18,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/consulta")
@@ -28,6 +29,13 @@ public class ConsultaController {
     @Autowired
     private ConsultaDtoMapper consultaDtoMapper;
 
+
+
+    @Operation(summary = "Cadastrar uma nova consulta")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Consulta cadastrada com sucesso"),
+            @ApiResponse(responseCode = "400", description = "Erro de validação na requisição")
+    })
     @PostMapping
     public ResponseEntity<Consulta> cadastrarConsulta(@RequestBody @Valid ConsultaCreatRequest consultaCreateRequest) {
         Consulta consulta = consultaDtoMapper.criandoDtoParaConsulta(consultaCreateRequest);
@@ -36,6 +44,10 @@ public class ConsultaController {
         return ResponseEntity.ok(consulta);
     }
 
+    @Operation(summary = "Listar todas as consultas")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Lista de consultas retornada com sucesso")
+    })
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Consulta>> listarConsultas() {
         List<Consulta> consultas = consultaService.listarConsultas();
@@ -43,6 +55,12 @@ public class ConsultaController {
     }
 
 
+    @Operation(summary = "Atualizar uma consulta existente")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Consulta atualizada com sucesso"),
+            @ApiResponse(responseCode = "404", description = "Consulta não encontrada"),
+            @ApiResponse(responseCode = "400", description = "Erro de validação na requisição")
+    })
     @PatchMapping("/{id}")
     public ResponseEntity<Consulta> atualizarConsulta(@PathVariable String id, @RequestBody @Valid ConsultaUpdateRequest consultaUpdateRequest) {
         Consulta consulta = consultaDtoMapper.converterConsultaUpdateteDto(consultaUpdateRequest);
@@ -55,6 +73,11 @@ public class ConsultaController {
         }
     }
 
+    @Operation(summary = "Buscar uma consulta por ID")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Consulta encontrada com sucesso"),
+            @ApiResponse(responseCode = "404", description = "Consulta não encontrada")
+    })
     @GetMapping("/{id}")
     public ResponseEntity<Consulta> buscarConsultaPorID(@PathVariable String id) {
         Consulta consulta = consultaService.buscarConsulta(id);
@@ -66,6 +89,11 @@ public class ConsultaController {
         }
     }
 
+    @Operation(summary = "Deletar uma consulta")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "204", description = "Consulta deletada com sucesso"),
+            @ApiResponse(responseCode = "404", description = "Consulta não encontrada")
+    })
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarConsulta(@PathVariable String id) {
         boolean deletado = consultaService.excluirConsulta(id);

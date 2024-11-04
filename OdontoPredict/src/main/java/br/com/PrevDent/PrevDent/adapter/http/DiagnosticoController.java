@@ -5,6 +5,9 @@ import br.com.PrevDent.PrevDent.adapter.http.dto.request.DiagnosticoCreateDto;
 import br.com.PrevDent.PrevDent.adapter.http.dto.request.DiagnosticoUpdateRequest;
 import br.com.PrevDent.PrevDent.domain.model.Diagnostico;
 import br.com.PrevDent.PrevDent.domain.service.DiagnosticoService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,6 +28,11 @@ public class DiagnosticoController {
     @Autowired
     private DiagnosticoDtoMapper diagnosticoDtoMapper;
 
+    @Operation(summary = "Cadastrar um novo diagnóstico")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Diagnóstico cadastrado com sucesso"),
+            @ApiResponse(responseCode = "400", description = "Erro de validação na requisição")
+    })
     @PostMapping
     public ResponseEntity<Diagnostico> cadastrarDiagnostico(@RequestBody @Valid DiagnosticoCreateDto diagnosticoCreateDto) {
 
@@ -35,12 +43,22 @@ public class DiagnosticoController {
         return ResponseEntity.ok(diagnostico);
     }
 
+    @Operation(summary = "Listar todos os diagnósticos")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Lista de diagnósticos retornada com sucesso")
+    })
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Diagnostico>> listarDiagnosticos() {
         List<Diagnostico> diagnosticos = diagnosticoService.listarDiagnosticos();
         return ResponseEntity.ok(diagnosticos);
     }
 
+    @Operation(summary = "Atualizar um diagnóstico existente")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Diagnóstico atualizado com sucesso"),
+            @ApiResponse(responseCode = "404", description = "Diagnóstico não encontrado"),
+            @ApiResponse(responseCode = "400", description = "Erro de validação na requisição")
+    })
     @PatchMapping("/{id}")
     public ResponseEntity<Diagnostico> atualizarDiagnostico(@PathVariable String id, @RequestBody @Valid DiagnosticoUpdateRequest diagnosticoUpdateRequest) {
 
@@ -54,6 +72,11 @@ public class DiagnosticoController {
         }
     }
 
+    @Operation(summary = "Buscar um diagnóstico por ID")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Diagnóstico encontrado com sucesso"),
+            @ApiResponse(responseCode = "404", description = "Diagnóstico não encontrado")
+    })
     @GetMapping("/{id}")
     public ResponseEntity<Diagnostico> buscarDiagnosticoPorID(@PathVariable String id) {
         Diagnostico diagnostico = diagnosticoService.buscarDiagnostico(id);
@@ -64,6 +87,11 @@ public class DiagnosticoController {
         }
     }
 
+    @Operation(summary = "Deletar um diagnóstico")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "204", description = "Diagnóstico deletado com sucesso"),
+            @ApiResponse(responseCode = "404", description = "Diagnóstico não encontrado")
+    })
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarDiagnostico(@PathVariable String id) {
         boolean deletado = diagnosticoService.excluirDiagnostico(id);
