@@ -5,6 +5,9 @@ import br.com.PrevDent.PrevDent.adapter.http.dto.request.PacienteUpdateRequest;
 import br.com.PrevDent.PrevDent.adapter.http.dto.mapper.PacienteDtoMapper;
 import br.com.PrevDent.PrevDent.domain.model.Paciente;
 import br.com.PrevDent.PrevDent.domain.service.PacienteService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,6 +28,11 @@ public class PacienteController {
     @Autowired
     private PacienteDtoMapper pacienteDtoMapper;
 
+    @Operation(summary = "Cadastrar um novo paciente")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Paciente cadastrado com sucesso"),
+            @ApiResponse(responseCode = "400", description = "Erro de validação na requisição")
+    })
     @PostMapping
     public ResponseEntity<Paciente> cadastrarPaciente(@RequestBody @Valid PacienteCreateRequest pacienteDto) {
 
@@ -34,12 +42,22 @@ public class PacienteController {
         return ResponseEntity.ok(paciente);
     }
 
+    @Operation(summary = "Listar todos os pacientes")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Lista de pacientes retornada com sucesso")
+    })
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity listarPacientes() {
         List<Paciente> pacientes = pacienteService.listarPacientes();
         return ResponseEntity.ok(pacientes);
     }
 
+    @Operation(summary = "Atualizar um paciente existente")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Paciente atualizado com sucesso"),
+            @ApiResponse(responseCode = "404", description = "Paciente não encontrado"),
+            @ApiResponse(responseCode = "400", description = "Erro de validação na requisição")
+    })
     @PatchMapping("/{id}")
     public ResponseEntity<Paciente> atualizarPaciente(@PathVariable String id, @RequestBody @Valid PacienteUpdateRequest pacienteUpdateDtoDto) {
 
@@ -53,6 +71,11 @@ public class PacienteController {
         }
     }
 
+    @Operation(summary = "Buscar um paciente por ID")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Paciente encontrado com sucesso"),
+            @ApiResponse(responseCode = "404", description = "Paciente não encontrado")
+    })
     @GetMapping("/{id}")
     public ResponseEntity<Paciente> buscarPacientePorId(@PathVariable String id) {
         Paciente paciente = pacienteService.buscarPaciente(id);
@@ -63,6 +86,11 @@ public class PacienteController {
         }
     }
 
+    @Operation(summary = "Deletar um paciente")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "204", description = "Paciente deletado com sucesso"),
+            @ApiResponse(responseCode = "404", description = "Paciente não encontrado")
+    })
     @DeleteMapping("{id}")
     public ResponseEntity<Paciente> deletarPaciente(@PathVariable String id) {
         boolean deletado = pacienteService.excluirPaciente(id);
