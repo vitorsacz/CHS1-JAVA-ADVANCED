@@ -10,6 +10,9 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/paciente")
@@ -27,6 +31,9 @@ public class PacienteController {
 
     @Autowired
     private PacienteDtoMapper pacienteDtoMapper;
+
+    @Autowired
+    private PacienteModelAssembler pacienteModelAssembler;
 
     @Operation(summary = "Cadastrar um novo paciente")
     @ApiResponses(value = {
@@ -47,9 +54,12 @@ public class PacienteController {
             @ApiResponse(responseCode = "200", description = "Lista de pacientes retornada com sucesso")
     })
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity listarPacientes() {
-        List<Paciente> pacientes = pacienteService.listarPacientes();
-        return ResponseEntity.ok(pacientes);
+    public ResponseEntity<CollectionModel<EntityModel<Paciente>>> listarPacientes() {
+        List<EntityModel<Paciente>> pacientes = pacienteService.listarPacientes().stream()
+                .map(pacienteModelAssembler::toModel)
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(CollectionModel.of(pacientes,
+                WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(PacienteController.class).listarPacientes()).withSelfRel()));
     }
 
     @Operation(summary = "Atualizar um paciente existente")
@@ -77,13 +87,9 @@ public class PacienteController {
             @ApiResponse(responseCode = "404", description = "Paciente não encontrado")
     })
     @GetMapping("/{id}")
-    public ResponseEntity<Paciente> buscarPacientePorId(@PathVariable String id) {
+    public ResponseEntity<EntityModel<Paciente>> buscarPacientePorId(@PathVariable String id) {
         Paciente paciente = pacienteService.buscarPaciente(id);
-        if (paciente != null) {
-            return new ResponseEntity<>(paciente, HttpStatus.OK);
-        }else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        return ResponseEntity.ok(pacienteModelAssembler.toModel(paciente));
     }
 
     @Operation(summary = "Deletar um paciente")
