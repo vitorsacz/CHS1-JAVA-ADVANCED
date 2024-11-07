@@ -15,7 +15,7 @@ import java.util.Date;
 public class ConsultaEntity {
 
     @Id
-    @Column(name = "id_consulta")
+    @Column(name = "consulta_id")
     private String idConsulta;
 
     @ManyToOne
@@ -33,7 +33,7 @@ public class ConsultaEntity {
     private String tipoTratamento;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "diagnostico_id", referencedColumnName = "id_diagnostico")
+    @JoinColumn(name = "diagnostico_id", referencedColumnName = "diagnostico_id")
     private DiagnosticoEntity diagnostico;
 
 }

@@ -6,14 +6,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity(name = "diagnostico")
-@Table(name = "tbl_diagnostico")
+@Table(name = "T_PD_CH_DIAGNOSTICOS")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class DiagnosticoEntity {
 
     @Id
-    @Column(name = "id_diagnostico")
+    @Column(name = "diagnostico_id")
     private String idDiagnostico;
 
     @Column(name = "descricao")
