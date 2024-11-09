@@ -25,6 +25,8 @@ O **OdontoPredict** é uma aplicação Java que utiliza análise preditiva para 
 
 ## Como rodar o projeto usando uma vm com Almalinux 9.04
 
+Video com o passo a passo: https://www.youtube.com/watch?v=qvUH_6Bitkk
+
 1- Acessar via ssh a vm 
 ```nome_usuario@ip_publico```
 
