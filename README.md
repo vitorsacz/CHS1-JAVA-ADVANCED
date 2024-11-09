@@ -21,6 +21,43 @@ O **OdontoPredict** é uma aplicação Java que utiliza análise preditiva para 
 - JPA
 - Lombok
 
+
+
+## Como rodar o projeto usando uma vm com Almalinux 9.04
+
+1- Acessar via ssh a vm 
+```nome_usuario@ip_publico```
+
+2- inserir a senha no terminal
+```sua_senha```
+
+
+## instalando o projeto na VM
+
+1- instalar o gerenciador de pacotes yum
+```sudo yum install -y yum-utils -y```
+
+2- instalar o docker
+```sudo yum-config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo```
+
+3- verificar a versao do docker
+``` docker --version```
+
+4- clonar nosso repositório
+```git clone https://github.com/vitorsacz/CHS1-JAVA-ADVANCED.g```
+
+5- start no docker
+``` sudo systemctl start docker```
+
+6- enable  no docker
+```sudo systemctl enable docker```
+
+7- cria uma build do docker a partir do dockerfile do projeto
+```sudo docker build -t docker-prevdent-java .```
+
+8- cria um container com a imagem criada e roda na porta 8080
+```sudo docker run -d -p 8080:8080 docker-prevdent-java```
+
 ## Estrutura do Projeto
 
 ### Pacotes Principais
