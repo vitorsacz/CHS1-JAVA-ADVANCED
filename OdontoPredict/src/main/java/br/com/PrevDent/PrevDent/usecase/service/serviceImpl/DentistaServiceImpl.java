@@ -1,11 +1,11 @@
-package br.com.PrevDent.PrevDent.usecasee.service.serviceImpl;
+package br.com.PrevDent.PrevDent.usecase.service.serviceImpl;
 
 import br.com.PrevDent.PrevDent.adapter.repository.entity.DentistaEntity;
 import br.com.PrevDent.PrevDent.adapter.repository.mapper.DentistaMapper;
 import br.com.PrevDent.PrevDent.domain.exception.DentistaNotFoudException;
 import br.com.PrevDent.PrevDent.domain.model.Dentista;
-import br.com.PrevDent.PrevDent.usecasee.ports.out.DentistaPortOut;
-import br.com.PrevDent.PrevDent.usecasee.service.DentistaService;
+import br.com.PrevDent.PrevDent.usecase.ports.out.DentistaPortOut;
+import br.com.PrevDent.PrevDent.usecase.service.DentistaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

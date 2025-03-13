@@ -1,6 +1,6 @@
-package br.com.PrevDent.PrevDent.infrase.security;
+package br.com.PrevDent.PrevDent.infra.security;
 
-import br.com.PrevDent.PrevDent.usecasee.ports.out.PacientePortOut;
+import br.com.PrevDent.PrevDent.usecase.ports.out.PacientePortOut;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

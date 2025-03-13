@@ -1,4 +1,4 @@
-package br.com.PrevDent.PrevDent.infrase.security;
+package br.com.PrevDent.PrevDent.infra.security;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
