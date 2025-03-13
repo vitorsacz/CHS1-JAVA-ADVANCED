@@ -1,13 +1,13 @@
-package br.com.PrevDent.PrevDent.usecasee.service.serviceImpl;
+package br.com.PrevDent.PrevDent.usecase.service.serviceImpl;
 
 import br.com.PrevDent.PrevDent.adapter.repository.entity.PacienteEntity;
 import br.com.PrevDent.PrevDent.adapter.repository.mapper.PacienteMapper;
 import br.com.PrevDent.PrevDent.domain.exception.PacienteNotFoundException;
 import br.com.PrevDent.PrevDent.domain.model.Paciente;
-import br.com.PrevDent.PrevDent.infrase.security.SecurityConfiguration;
-import br.com.PrevDent.PrevDent.infrase.security.TokenService;
-import br.com.PrevDent.PrevDent.usecasee.ports.out.PacientePortOut;
-import br.com.PrevDent.PrevDent.usecasee.service.PacienteService;
+import br.com.PrevDent.PrevDent.infra.security.SecurityConfiguration;
+import br.com.PrevDent.PrevDent.infra.security.TokenService;
+import br.com.PrevDent.PrevDent.usecase.ports.out.PacientePortOut;
+import br.com.PrevDent.PrevDent.usecase.service.PacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

@@ -1,4 +1,4 @@
-package br.com.PrevDent.PrevDent.infrase.security;
+package br.com.PrevDent.PrevDent.infra.security;
 
 import br.com.PrevDent.PrevDent.adapter.repository.entity.PacienteEntity;
 import com.auth0.jwt.JWT;

@@ -1,11 +1,11 @@
-package br.com.PrevDent.PrevDent.usecasee.service.serviceImpl;
+package br.com.PrevDent.PrevDent.usecase.service.serviceImpl;
 
 import br.com.PrevDent.PrevDent.adapter.repository.entity.NovosRegistroEntity;
 import br.com.PrevDent.PrevDent.adapter.repository.mapper.NovosRegistroMapper;
 import br.com.PrevDent.PrevDent.domain.exception.NovosRegistroNotFoundException;
 import br.com.PrevDent.PrevDent.domain.model.NovosRegistro;
-import br.com.PrevDent.PrevDent.usecasee.ports.out.NovosRegistroPortOut;
-import br.com.PrevDent.PrevDent.usecasee.service.NovosRegistroService;
+import br.com.PrevDent.PrevDent.usecase.ports.out.NovosRegistroPortOut;
+import br.com.PrevDent.PrevDent.usecase.service.NovosRegistroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
