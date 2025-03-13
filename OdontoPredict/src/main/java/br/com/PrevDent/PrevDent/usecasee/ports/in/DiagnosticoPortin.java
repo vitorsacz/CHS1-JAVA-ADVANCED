@@ -1,4 +1,4 @@
-package br.com.PrevDent.PrevDent.usecase.ports.in;
+package br.com.PrevDent.PrevDent.usecasee.ports.in;
 
 public interface DiagnosticoPortin <Entrada, Saida>{
 

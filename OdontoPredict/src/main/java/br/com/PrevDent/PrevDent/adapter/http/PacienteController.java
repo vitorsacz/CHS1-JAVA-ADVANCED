@@ -5,7 +5,7 @@ import br.com.PrevDent.PrevDent.adapter.http.dto.request.PacienteLoginRequest;
 import br.com.PrevDent.PrevDent.adapter.http.dto.request.PacienteUpdateRequest;
 import br.com.PrevDent.PrevDent.adapter.http.dto.mapper.PacienteDtoMapper;
 import br.com.PrevDent.PrevDent.domain.model.Paciente;
-import br.com.PrevDent.PrevDent.usecase.service.PacienteService;
+import br.com.PrevDent.PrevDent.usecasee.service.PacienteService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;

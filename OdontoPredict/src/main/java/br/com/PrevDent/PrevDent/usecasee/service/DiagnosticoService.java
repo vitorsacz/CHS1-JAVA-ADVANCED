@@ -1,4 +1,4 @@
-package br.com.PrevDent.PrevDent.usecase.service;
+package br.com.PrevDent.PrevDent.usecasee.service;
 
 import br.com.PrevDent.PrevDent.domain.model.Diagnostico;
 
