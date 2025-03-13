@@ -114,6 +114,7 @@ public class PacienteServiceImpl implements PacienteService {
         }
     }
 
+
     @Override
     public String ValidarLogin(String cpf, String senhaDigitada) {
         PacienteEntity pacienteEntity = pacientePortOut.findByCpf(cpf);
