@@ -1,11 +1,16 @@
-package br.com.PrevDent.PrevDent.domain.service;
+package br.com.PrevDent.PrevDent.usecase.service.serviceImpl;
 
 import br.com.PrevDent.PrevDent.adapter.repository.entity.PacienteEntity;
 import br.com.PrevDent.PrevDent.adapter.repository.mapper.PacienteMapper;
 import br.com.PrevDent.PrevDent.domain.exception.PacienteNotFoundException;
 import br.com.PrevDent.PrevDent.domain.model.Paciente;
-import br.com.PrevDent.PrevDent.domain.ports.out.PacientePortOut;
+import br.com.PrevDent.PrevDent.infra.security.SecurityConfiguration;
+import br.com.PrevDent.PrevDent.infra.security.TokenService;
+import br.com.PrevDent.PrevDent.usecase.ports.out.PacientePortOut;
+import br.com.PrevDent.PrevDent.usecase.service.PacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,7 +18,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class PacienteServiceImpl implements PacienteService{
+public class PacienteServiceImpl implements PacienteService {
 
     @Autowired
     private PacientePortOut pacientePortOut;
@@ -21,9 +26,22 @@ public class PacienteServiceImpl implements PacienteService{
     @Autowired
     private PacienteMapper pacienteMapper;
 
+    @Autowired
+    private SecurityConfiguration securityConfig;
+
+    @Autowired
+    private TokenService tokenService;
+
+
     @Override
     public void cadastarPaciente(Paciente paciente) {
+
+        if(pacientePortOut.findByCpf(paciente.getCpf()) != null){
+            throw new RuntimeException("CPF do Paciente já cadastrado");
+        }
+
         PacienteEntity pacienteEntity = pacienteMapper.converterPacienteEntity(paciente);
+
         pacientePortOut.save(pacienteEntity);
     }
 
@@ -95,4 +113,23 @@ public class PacienteServiceImpl implements PacienteService{
             throw new PacienteNotFoundException();
         }
     }
+
+
+    @Override
+    public String ValidarLogin(String cpf, String senhaDigitada) {
+        PacienteEntity pacienteEntity = pacientePortOut.findByCpf(cpf);
+
+        if (pacienteEntity == null) {
+            throw new UsernameNotFoundException("Paciente não encontrado");
+        }
+
+        if (!securityConfig.passwordEncoder().matches(senhaDigitada, pacienteEntity.getSenha())) {
+            throw new BadCredentialsException("Senha incorreta");
+        }
+
+        return tokenService.gerarToken(pacienteEntity);
+    }
+
+
+
 }
