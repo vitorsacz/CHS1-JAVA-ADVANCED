@@ -19,15 +19,12 @@ public class ConsultaListaResponse {
     private String idConsulta;
 
     @JsonProperty("paciente")
-    @NotNull(message = "O paciente é obrigatório.")
     private PacienteCreateRequest paciente;
 
     @JsonProperty("dentista")
-    @NotNull(message = "O dentista é obrigatório.")
     private DentistaCreatRequest dentista;
 
     @JsonProperty("data_consulta")
-    @NotNull(message = "A data da consulta é obrigatória.")
     private Date data;
 
 }

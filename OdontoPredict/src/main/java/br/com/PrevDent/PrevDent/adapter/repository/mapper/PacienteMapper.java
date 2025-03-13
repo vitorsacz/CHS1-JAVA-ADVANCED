@@ -2,10 +2,17 @@ package br.com.PrevDent.PrevDent.adapter.repository.mapper;
 
 import br.com.PrevDent.PrevDent.adapter.repository.entity.PacienteEntity;
 import br.com.PrevDent.PrevDent.domain.model.Paciente;
+import br.com.PrevDent.PrevDent.domain.user.PacienteUserRole;
+import br.com.PrevDent.PrevDent.infra.security.SecurityConfiguration;
+import lombok.RequiredArgsConstructor;
+import org.apache.catalina.security.SecurityConfig;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class PacienteMapper {
+
+    private final SecurityConfiguration securityConfig;
 
     public Paciente converterPaciente(PacienteEntity pacienteEntity){
         Paciente paciente = new Paciente();
@@ -20,7 +27,9 @@ public class PacienteMapper {
         PacienteEntity pacienteEntity = new PacienteEntity();
         pacienteEntity.setNome(paciente.getNome());
         pacienteEntity.setCpf(paciente.getCpf());
+        pacienteEntity.setSenha(securityConfig.passwordEncoder().encode(paciente.getSenha()));
         pacienteEntity.setDataNascimento(paciente.getDataNascimento());
+        pacienteEntity.setRole(PacienteUserRole.Admin);
         pacienteEntity.setIdPaciente(paciente.getIdPaciente());
         return pacienteEntity;
     }
@@ -33,5 +42,9 @@ public class PacienteMapper {
 
     public void atualizarPacienteEntity(PacienteEntity pacienteEntity, Paciente paciente){
         pacienteEntity.setNome(paciente.getNome());
+
+        if (paciente.getSenha() != null && !paciente.getSenha().isEmpty()) {
+            pacienteEntity.setSenha(securityConfig.passwordEncoder().encode(paciente.getSenha()));
+        }
     }
 }

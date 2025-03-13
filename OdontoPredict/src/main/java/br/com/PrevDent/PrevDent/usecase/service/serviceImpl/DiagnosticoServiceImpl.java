@@ -1,10 +1,11 @@
-package br.com.PrevDent.PrevDent.domain.service;
+package br.com.PrevDent.PrevDent.usecase.service.serviceImpl;
 
 import br.com.PrevDent.PrevDent.adapter.repository.entity.DiagnosticoEntity;
 import br.com.PrevDent.PrevDent.adapter.repository.mapper.DiagnosticoMapper;
 import br.com.PrevDent.PrevDent.domain.exception.DiagnosticoNotFoundException;
 import br.com.PrevDent.PrevDent.domain.model.Diagnostico;
-import br.com.PrevDent.PrevDent.domain.ports.out.DiagnosticoPortOut;
+import br.com.PrevDent.PrevDent.usecase.ports.out.DiagnosticoPortOut;
+import br.com.PrevDent.PrevDent.usecase.service.DiagnosticoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +15,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
-public class DiagnosticoServiceImpl  implements DiagnosticoService{
+public class DiagnosticoServiceImpl  implements DiagnosticoService {
 
     @Autowired
     private DiagnosticoPortOut diagnosticoPortOut;

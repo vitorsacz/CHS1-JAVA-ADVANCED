@@ -12,12 +12,8 @@ public class PacienteDetailResponse {
     private String idPaciente;
 
     @JsonProperty("nome")
-    @NotNull
-    @NotEmpty
     private String nome;
 
     @JsonProperty("data_nascimento")
-    @NotNull
-    @NotEmpty
     private String dataNascimento;
 }

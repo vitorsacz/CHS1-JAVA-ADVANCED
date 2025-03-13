@@ -1,10 +1,11 @@
 package br.com.PrevDent.PrevDent.adapter.http;
 
 import br.com.PrevDent.PrevDent.adapter.http.dto.request.PacienteCreateRequest;
+import br.com.PrevDent.PrevDent.adapter.http.dto.request.PacienteLoginRequest;
 import br.com.PrevDent.PrevDent.adapter.http.dto.request.PacienteUpdateRequest;
 import br.com.PrevDent.PrevDent.adapter.http.dto.mapper.PacienteDtoMapper;
 import br.com.PrevDent.PrevDent.domain.model.Paciente;
-import br.com.PrevDent.PrevDent.domain.service.PacienteService;
+import br.com.PrevDent.PrevDent.usecase.service.PacienteService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -13,12 +14,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -40,13 +42,30 @@ public class PacienteController {
             @ApiResponse(responseCode = "200", description = "Paciente cadastrado com sucesso"),
             @ApiResponse(responseCode = "400", description = "Erro de validação na requisição")
     })
-    @PostMapping
+    @PostMapping("/cadastrar")
     public ResponseEntity<Paciente> cadastrarPaciente(@RequestBody @Valid PacienteCreateRequest pacienteDto) {
 
         Paciente paciente = pacienteDtoMapper.converterPacienteDto(pacienteDto);
 
         pacienteService.cadastarPaciente(paciente);
+
         return ResponseEntity.ok(paciente);
+    }
+
+    @Operation(summary = "Realizar login do paciente e obter um token JWT")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Login realizado com sucesso"),
+            @ApiResponse(responseCode = "401", description = "Credenciais inválidas")
+    })
+    @PostMapping("/login")
+    public ResponseEntity<Map<String, String>> login(@RequestBody @Valid PacienteLoginRequest pacienteLoginRequest){
+
+        String token = pacienteService.ValidarLogin(pacienteLoginRequest.getCpf(), pacienteLoginRequest.getSenha());
+
+        Map<String, String> response = new HashMap<>();
+        response.put("token", token);
+
+        return ResponseEntity.ok(response);
     }
 
     @Operation(summary = "Listar todos os pacientes")
@@ -55,9 +74,11 @@ public class PacienteController {
     })
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<CollectionModel<EntityModel<Paciente>>> listarPacientes() {
+
         List<EntityModel<Paciente>> pacientes = pacienteService.listarPacientes().stream()
                 .map(pacienteModelAssembler::toModel)
                 .collect(Collectors.toList());
+
         return ResponseEntity.ok(CollectionModel.of(pacientes,
                 WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(PacienteController.class).listarPacientes()).withSelfRel()));
     }
@@ -75,9 +96,13 @@ public class PacienteController {
 
         Optional<Paciente> atualizado = pacienteService.atualizarPaciente(id, paciente);
         if (atualizado.isPresent()) {
+
             return ResponseEntity.ok(atualizado.get());
+
         } else {
+
             return ResponseEntity.notFound().build();
+
         }
     }
 
@@ -88,7 +113,9 @@ public class PacienteController {
     })
     @GetMapping("/{id}")
     public ResponseEntity<EntityModel<Paciente>> buscarPacientePorId(@PathVariable String id) {
+
         Paciente paciente = pacienteService.buscarPaciente(id);
+
         return ResponseEntity.ok(pacienteModelAssembler.toModel(paciente));
     }
 
@@ -99,11 +126,17 @@ public class PacienteController {
     })
     @DeleteMapping("{id}")
     public ResponseEntity<Paciente> deletarPaciente(@PathVariable String id) {
+
         boolean deletado = pacienteService.excluirPaciente(id);
+
         if (deletado) {
+
             return ResponseEntity.noContent().build();
+
         } else {
+
             return ResponseEntity.notFound().build();
+
         }
     }
 }
