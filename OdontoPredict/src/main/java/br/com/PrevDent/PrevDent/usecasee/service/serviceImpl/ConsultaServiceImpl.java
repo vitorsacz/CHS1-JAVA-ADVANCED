@@ -1,4 +1,4 @@
-package br.com.PrevDent.PrevDent.usecase.service.serviceImpl;
+package br.com.PrevDent.PrevDent.usecasee.service.serviceImpl;
 
 import br.com.PrevDent.PrevDent.adapter.repository.entity.ConsultaEntity;
 import br.com.PrevDent.PrevDent.adapter.repository.entity.DentistaEntity;
@@ -10,11 +10,11 @@ import br.com.PrevDent.PrevDent.adapter.repository.mapper.DiagnosticoMapper;
 import br.com.PrevDent.PrevDent.adapter.repository.mapper.PacienteMapper;
 import br.com.PrevDent.PrevDent.domain.exception.ConsultaNotFoudException;
 import br.com.PrevDent.PrevDent.domain.model.Consulta;
-import br.com.PrevDent.PrevDent.usecase.ports.out.ConsultaPortOut;
-import br.com.PrevDent.PrevDent.usecase.ports.out.DentistaPortOut;
-import br.com.PrevDent.PrevDent.usecase.ports.out.DiagnosticoPortOut;
-import br.com.PrevDent.PrevDent.usecase.ports.out.PacientePortOut;
-import br.com.PrevDent.PrevDent.usecase.service.ConsultaService;
+import br.com.PrevDent.PrevDent.usecasee.ports.out.ConsultaPortOut;
+import br.com.PrevDent.PrevDent.usecasee.ports.out.DentistaPortOut;
+import br.com.PrevDent.PrevDent.usecasee.ports.out.DiagnosticoPortOut;
+import br.com.PrevDent.PrevDent.usecasee.ports.out.PacientePortOut;
+import br.com.PrevDent.PrevDent.usecasee.service.ConsultaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

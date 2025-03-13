@@ -1,4 +1,4 @@
-package br.com.PrevDent.PrevDent.usecase.ports.out;
+package br.com.PrevDent.PrevDent.usecasee.ports.out;
 
 import br.com.PrevDent.PrevDent.adapter.repository.entity.NovosRegistroEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -3,9 +3,8 @@ package br.com.PrevDent.PrevDent.adapter.repository.mapper;
 import br.com.PrevDent.PrevDent.adapter.repository.entity.PacienteEntity;
 import br.com.PrevDent.PrevDent.domain.model.Paciente;
 import br.com.PrevDent.PrevDent.domain.user.PacienteUserRole;
-import br.com.PrevDent.PrevDent.infra.security.SecurityConfiguration;
+import br.com.PrevDent.PrevDent.infrase.security.SecurityConfiguration;
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.security.SecurityConfig;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -5,7 +5,7 @@ import br.com.PrevDent.PrevDent.adapter.http.dto.request.NovosRegistroCreatReque
 import br.com.PrevDent.PrevDent.adapter.http.dto.request.NovosRegistroUpdateRequest;
 import br.com.PrevDent.PrevDent.domain.exception.NovosRegistroNotFoundException;
 import br.com.PrevDent.PrevDent.domain.model.NovosRegistro;
-import br.com.PrevDent.PrevDent.usecase.service.NovosRegistroService;
+import br.com.PrevDent.PrevDent.usecasee.service.NovosRegistroService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
