@@ -1,4 +1,4 @@
-package br.com.PrevDent.PrevDent.domain.service;
+package br.com.PrevDent.PrevDent.usecase.service;
 
 import br.com.PrevDent.PrevDent.domain.model.Consulta;
 

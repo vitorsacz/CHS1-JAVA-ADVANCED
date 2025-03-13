@@ -1,5 +1,6 @@
 package br.com.PrevDent.PrevDent.adapter.http;
 
+import br.com.PrevDent.PrevDent.adapter.http.dto.response.PacienteListaResponse;
 import br.com.PrevDent.PrevDent.domain.model.Paciente;
 import br.com.PrevDent.PrevDent.adapter.http.PacienteController;
 import org.springframework.hateoas.EntityModel;

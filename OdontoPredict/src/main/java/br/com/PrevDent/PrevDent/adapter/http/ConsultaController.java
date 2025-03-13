@@ -5,7 +5,7 @@ import br.com.PrevDent.PrevDent.adapter.http.dto.mapper.ConsultaDtoMapper;
 import br.com.PrevDent.PrevDent.adapter.http.dto.request.ConsultaCreatRequest;
 import br.com.PrevDent.PrevDent.adapter.http.dto.request.ConsultaUpdateRequest;
 import br.com.PrevDent.PrevDent.domain.model.Consulta;
-import br.com.PrevDent.PrevDent.domain.service.ConsultaService;
+import br.com.PrevDent.PrevDent.usecase.service.ConsultaService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;

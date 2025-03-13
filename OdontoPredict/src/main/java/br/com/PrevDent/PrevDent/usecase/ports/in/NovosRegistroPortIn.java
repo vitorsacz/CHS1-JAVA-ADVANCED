@@ -1,4 +1,4 @@
-package br.com.PrevDent.PrevDent.domain.ports.in;
+package br.com.PrevDent.PrevDent.usecase.ports.in;
 
 public interface NovosRegistroPortIn<Entrada, Saida> {
 
